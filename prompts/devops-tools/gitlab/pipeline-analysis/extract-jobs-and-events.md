@@ -4,6 +4,7 @@
 Extract job details from multiple GitLab CI configurations and generate a combined structured output.
 
 ## Prompt
+```text
 Analyze the provided GitLab CI configuration files.
 
 Each file corresponds to a project:
@@ -28,6 +29,7 @@ Rules:
 - Combine all projects into a single CSV/table output
 - Output must be structured and concise
 - Do not add explanations
+```
 
 ## Notes
 - Replace placeholders before use

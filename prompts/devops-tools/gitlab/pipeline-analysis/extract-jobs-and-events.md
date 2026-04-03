@@ -1,41 +1,38 @@
-# Document GitLab Standard Pipeline Events
+# Extract Jobs and Events from Multiple GitLab CI Files
 
 ## Purpose
-Generate documentation for standard GitLab pipeline trigger events and explain how each event can be triggered and verified.
+Extract job details from multiple GitLab CI configurations and generate a combined structured output.
 
 ## Prompt
 ```text
-Provide documentation for standard GitLab pipeline trigger events.
+Analyze the provided GitLab CI configuration files.
 
-Include these events:
-- push
-- merge_request_event
-- tag_push
-- schedule
-- web
-- api
-- trigger
-- parent_pipeline
-- pipeline
-- external
+Each file corresponds to a project:
+- File 1 → <PROJECT_1_NAME>
+- File 2 → <PROJECT_2_NAME>
+- File 3 → <PROJECT_3_NAME>
+...
+- File N → <PROJECT_N_NAME>
 
-For each event, provide:
-1. Event name
-2. Short description
-3. How to trigger it in GitLab
-4. Expected pipeline behavior
-5. How to verify it in GitLab pipeline history
+Extract:
+Project Name, Stage, Job Name, Job Exists, Is Manual, Trigger Event, Enabled
 
 Rules:
-- Keep steps practical and user-friendly
-- Use simple numbered steps
-- Keep descriptions concise but clear
-- Use GitLab terminology
-- Output in well-structured Markdown
-- Do not include unnecessary explanations
+- Map each file to its corresponding project name
+- Extract stage and job name from each GitLab CI configuration
+- If a job is not present in a project, write "Job does not exist"
+- If job uses "when: manual", mark Is Manual = Yes, else No
+- Extract trigger events from rules / only / except / workflow
+- If trigger event is unclear, write "Review required"
+- Create separate rows if one job supports multiple trigger events
+- Create one row per (Project + Job + Trigger Event)
+- Combine all projects into a single CSV/table output
+- Output must be structured and concise
+- Do not add explanations
 ```
 
 ## Notes
-- Review event names against your GitLab version if needed
-- Keep terminology aligned with GitLab UI labels
-- Verify generated documentation before sharing
+- Replace placeholders before use
+- Extend mapping if more files are provided
+- Ensure correct file-to-project mapping
+- Verify results before applying changes

@@ -1,141 +1,108 @@
-# Fancy Prompts for AI Tools
+# General-Purpose Prompt Starters
 
 ## Purpose
-Provide simple, effective prompts for tools like ChatGPT, Claude, and Gemini to quickly generate useful outputs.
 
----
+Provide compact starting prompts for common tasks when a more specialized repository prompt is not available.
 
-## 1. Create Presentation
+## Required practice
 
-## Prompt
+- Replace all placeholders.
+- Provide the source material needed for the task.
+- Ask the model to identify missing information instead of inventing it.
+- Verify factual, technical, or consequential output before use.
+
+## Explain a concept
+
 ```text
-Hey <AI_TOOL_NAME>, create a professional PowerPoint on <TOPIC>.
+Explain <TOPIC> for <AUDIENCE_LEVEL>.
 
 Include:
-- Title slide
-- Agenda
-- Key concepts
-- Examples
-- Summary
+- a plain-language definition;
+- one relevant analogy;
+- one concrete example;
+- common misconceptions;
+- key takeaways.
 
-Keep slides concise and presentation-ready.
+State any assumptions and do not invent facts when context is missing.
 ```
 
-## 2. Explain Concept Simply
+## Structure raw notes
 
-## Prompt
 ```text
-Explain <TOPIC> in simple terms.
+Convert <RAW_NOTES> into a structured <DOCUMENT_TYPE>.
+
+Requirements:
+- preserve confirmed facts and decisions;
+- separate assumptions and open questions;
+- remove repetition without losing meaning;
+- use descriptive headings and concise language;
+- list information that needs confirmation.
+```
+
+## Diagnose an issue
+
+```text
+Analyze this issue using only the supplied evidence.
+
+Context:
+<CONTEXT>
+
+Observed behavior:
+<OBSERVED_BEHAVIOR>
+
+Logs or errors:
+<LOGS_OR_ERRORS>
+
+Provide:
+1. Evidence summary
+2. Ranked possible causes
+3. Safe diagnostic checks
+4. Recommended fix, if supported
+5. Verification steps
+6. Remaining uncertainty
+
+Do not claim a confirmed root cause unless the evidence supports it.
+```
+
+## Compare alternatives
+
+```text
+Compare <OPTION_A> and <OPTION_B> for <USE_CASE>.
+
+Evaluate:
+- suitability;
+- benefits and limitations;
+- implementation and operating cost;
+- security and reliability;
+- migration or lock-in risk.
+
+State the assumptions, recommend an option, and explain when the recommendation would change.
+```
+
+## Summarize source material
+
+```text
+Summarize <SOURCE_MATERIAL> for <AUDIENCE>.
 
 Include:
-- Real-world analogy
-- Short example
-- Key takeaways
+- central message;
+- key facts and decisions;
+- risks or caveats;
+- unresolved questions;
+- concise next actions, if present.
 
-Keep it beginner-friendly.
+Do not add claims that are absent from the source.
 ```
 
-## 3. Convert Notes to Structured Content
+## Draft a professional message
 
-## Prompt
 ```text
-Convert the following notes into structured content.
+Draft a <MESSAGE_TYPE> for <AUDIENCE> about <PURPOSE>.
 
-Format:
-- Headings
-- Bullet points
-- Clear sections
+Tone: <TONE>
+Length: <LENGTH>
+Required facts: <FACTS>
+Requested action: <ACTION>
 
-Keep it clean and readable.
+Keep it direct and professional. Do not invent dates, commitments, names, or approvals.
 ```
-
-## 4. Generate Code
-
-## Prompt
-```text
-Write code for <TASK> in <LANGUAGE>.
-
-Rules:
-- Keep it simple
-- Add comments
-- Provide example input/output
-```
-
-## 5. Debug Issue
-
-## Prompt
-```text
-Analyze this issue and provide:
-- Root cause
-- Fix
-- Steps to verify
-
-Keep it practical.
-```
-
-## 6. Create Step-by-Step Guide
-
-## Prompt
-```text
-Create a step-by-step guide for <TASK>.
-
-Include:
-- Clear steps
-- Expected result
-- Tips if needed
-```
-
-## 7. Summarize Content
-
-## Prompt
-```text
-Summarize the following content.
-
-Include:
-- Key points
-- Important highlights
-- Final takeaway
-```
-
-## 8. Generate Email / Message
-
-## Prompt
-```text
-Write a professional message for <PURPOSE>.
-
-Tone:
-- Clear
-- Concise
-- Polite
-```
-
-## 9. Compare Two Concepts
-
-## Prompt
-```text
-Compare <ITEM_1> vs <ITEM_2>.
-
-Include:
-- Differences
-- Use cases
-- Recommendation
-```
-
-## 10. Create Reusable Prompt
-
-## Prompt
-```text
-Create a reusable prompt for:
-
-<TASK>
-
-Rules:
-- Use placeholders
-- Keep it concise
-- Make it tool-agnostic
-```
-
-## Notes
-- Replace placeholders before use
-- Works with ChatGPT, Claude, Gemini, and similar tools
-- Keep prompts simple for best results

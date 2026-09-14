@@ -1,35 +1,57 @@
-# Generate Reusable Prompt
+# Generate a Reusable Prompt
 
 ## Purpose
-Create a reusable, copy-friendly prompt file for a new topic using a consistent template.
+
+Create a consistent, copy-ready prompt for a repeatable task.
 
 ## Prompt
+
 ````text
-Create a reusable prompt for the following topic: <TOPIC>.
+Create a reusable prompt for this task:
 
-Generate the output in this structure:
+<TASK>
 
-# <TITLE>
+Intended users:
+<AUDIENCE>
+
+Expected source material:
+<INPUTS>
+
+Required result:
+<OUTPUT>
+
+Use this Markdown structure:
+
+# <ACTION-ORIENTED TITLE>
 
 ## Purpose
-<SHORT PURPOSE>
+<THE SPECIFIC PROBLEM THIS PROMPT SOLVES>
+
+## When to use
+<APPROPRIATE SITUATIONS AND IMPORTANT EXCLUSIONS>
+
+## Inputs
+- <REQUIRED INPUT>
+- <OPTIONAL INPUT>
 
 ## Prompt
 ```text
-<MAIN PROMPT BODY>
+<COPY-READY PROMPT WITH DESCRIPTIVE PLACEHOLDERS>
 ```
 
-## Notes
-- <OPTIONAL NOTE 1>
-- <OPTIONAL NOTE 2>
+## Validation
+<HOW A HUMAN SHOULD VERIFY THE GENERATED RESULT>
 
 Requirements:
-- Keep the prompt concise and reusable
-- Use placeholders instead of organization-specific details
-- Make the prompt easy to copy from Markdown
-- Keep wording tool-agnostic
-- Focus on practical instructions and expected output
+- Keep the task and expected output unambiguous.
+- Use descriptive placeholders instead of organization-specific values.
+- Tell the model to distinguish facts, assumptions, and missing evidence.
+- Include security, privacy, destructive-action, or production safeguards when relevant.
+- Do not make the prompt model-specific unless the task requires a particular capability.
+- Keep examples sanitized and fictional.
+- Make the prompt easy to copy from rendered Markdown.
 ````
 
-## Notes
-- Replace placeholders before saving the final prompt
+## Validation
+
+Review the generated prompt against [CONTRIBUTING.md](../CONTRIBUTING.md) and [PROMPTING_GUIDE.md](../PROMPTING_GUIDE.md) before adding it to the catalog.

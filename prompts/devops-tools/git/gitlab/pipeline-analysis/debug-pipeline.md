@@ -1,27 +1,55 @@
 # Debug GitLab Pipeline
 
 ## Purpose
-Identify likely causes of GitLab pipeline failures and suggest practical debugging steps.
+
+Diagnose a failed GitLab pipeline from configuration and job evidence, prioritizing safe investigation before changes.
+
+## Inputs
+
+- Relevant `.gitlab-ci.yml` and included configuration
+- Failing pipeline source and branch or tag
+- Failed job name, stage, and logs
+- Recent configuration or dependency changes
+- Runner, image, environment, and variable context when relevant
+
+Remove tokens, secrets, credentials, private URLs, and sensitive values from logs before sharing them.
 
 ## Prompt
+
 ```text
-Review the provided GitLab pipeline configuration, job logs, and error details to help debug the issue.
+Diagnose this GitLab pipeline failure using only the supplied configuration and logs.
+
+Pipeline context:
+<PIPELINE_CONTEXT>
+
+CI configuration:
+<CI_CONFIGURATION>
+
+Failed job logs:
+<SANITIZED_JOB_LOGS>
+
+Recent changes:
+<RECENT_CHANGES>
 
 Provide:
-1. Likely root cause
-2. Affected job or stage
-3. Why the issue is happening
-4. Suggested fix
-5. Steps to verify the fix
+1. Evidence summary
+2. Most likely root cause and confidence
+3. Other plausible causes
+4. Safe diagnostic checks in recommended order
+5. Minimal proposed fix
+6. Verification plan
+7. Rollback approach
+8. Missing evidence
 
 Rules:
-- Prioritize the most likely causes first
-- Base the answer on the provided YAML and logs
-- Mention missing information if the input is incomplete
-- Keep the response practical and concise
-- Use GitLab CI terminology
-- Do not include unrelated theory
+- Cite the relevant job, rule, include, variable, or log line.
+- Do not invent variable values, runner behavior, artifacts, or job results.
+- Distinguish configuration issues from runner, dependency, permission, or environment failures.
+- Prefer read-only checks and reversible fixes.
+- Do not recommend exposing protected or masked variables.
+- Flag version-sensitive GitLab behavior for official-documentation verification.
 ```
 
-## Notes
-- Include failing job logs for better results
+## Validation
+
+Test the fix on a non-production branch or isolated pipeline where possible. Confirm the intended pipeline sources still run and unintended sources remain blocked.
